@@ -141,6 +141,11 @@ def ler_arquivo_ou_stdin(caminho: str | None, rotulo: str) -> str:
 
 
 def main():
+    # Consoles do Windows com codepage legada (cp1252) quebram ao imprimir
+    # os emojis da saída; força UTF-8 quando o terminal permitir.
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
     parser = argparse.ArgumentParser(
         description="Compara currículo com descrição de vaga e aponta palavras-chave faltando."
     )
