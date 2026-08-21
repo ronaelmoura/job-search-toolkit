@@ -16,13 +16,32 @@ específica não aparecem no seu currículo.
 o ATS. Ela só aponta lacunas reais — cabe a você decidir se cada termo
 faltando é algo que você genuinamente sabe fazer e vale adicionar.
 
-## Como usar
+## Instalação
 
-Requer apenas Python 3.10+ (nenhuma biblioteca externa).
+Requer Python 3.10+. Para arquivos `.txt` não é preciso instalar nada;
+para ler currículo ou vaga direto de um `.pdf`, instale a dependência:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Como usar
 
 ```bash
 python3 resume_matcher.py --curriculo curriculo.txt --vaga vaga.txt
 ```
+
+Currículo ou vaga em PDF (detectado automaticamente pela extensão do
+arquivo):
+
+```bash
+python3 resume_matcher.py --curriculo curriculo.pdf --vaga vaga.txt
+```
+
+Se o PDF for escaneado (imagem, sem camada de texto) e não tiver passado
+por OCR, o script avisa que não conseguiu extrair texto útil em vez de
+seguir com uma análise sem sentido — nesse caso, rode um OCR antes ou
+exporte o documento como `.txt`.
 
 Ou no modo interativo (cola o texto direto no terminal):
 
@@ -39,7 +58,7 @@ O script mostra:
 
 ## Roadmap
 
-- [ ] Suporte a leitura direta de PDF (currículo em .pdf)
+- [x] Suporte a leitura direta de PDF (currículo em .pdf)
 - [ ] Modo em lote: comparar um currículo com várias vagas de uma vez
 - [ ] Sugestão automática de onde encaixar cada termo faltando
 
