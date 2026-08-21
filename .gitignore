@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Dados pessoais - curriculos e vagas ficam fora do repo
+curriculo*.txt
+vaga*.txt
+*.pdf
+
+# Editores / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
